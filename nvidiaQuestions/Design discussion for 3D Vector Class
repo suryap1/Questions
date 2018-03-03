@@ -1,0 +1,44 @@
+3D-Vector Class Design decisions:
+
+I decided to make the vector class templated so it supports any general or custom defined datatype, generally float or double would be used. It is generally advised to use float or double as some methods would return rounded values for other datatypes.
+
+There are 4 ways to initialize a vector. 
+->vect3 A //all components are set to 0.
+->vect3 A(p); //all components are set to p;
+->vect3 A(x,y,z); //x,y,z are components
+->vect3 A(V); // where v is a vector.
+
+Why have I made the components private?
+Having the subscript operator [] to access components as x:[0] , y:[1] and z[2] seems more intuitive and generally a more conventional
+route rather than using something for e.g. V.x, V.y and V.z. If I was accessing the components without subscript operator then making the components public would make sense as there is no internal state to maintain.
+
+Other design points:
+
+>Accessing vector components this way would save function overhead call of getter and setter functions.
+
+>Inlining function would speed up execution as these are small set of statements and would not result in code bloat.
+
+>Const statements have been adequately used as a good practise to avoid accidental or undesired updates.
+
+>Bounds have been checked while implementing the subscript operator.
+
+>Input/Output streams have been made cin/cout compatible.
+
+>Useful vector methods have been implemented and Vector comparision using == and != as well.
+
+List of methods
+Length() - returns length of vector
+LengthSq() - returns length squared of vector
+normalize() - modifies the vector such that its length becomes 1.
+unit() - returns a new vector of unit length along the direction of the vector.
+dot() - returns the value of dot product between two vectors.
+cross() - returns a vector which is the cross product between two vectors.
+distance() //point and between vectors.
+          //point
+          vector.distance(point)
+          //vectors
+          distance(vector1,vector2)
+isNull() - checks whether the vector is a null vector.
+More functions like sin(), cos() etc. can be implemented using these functions.
+If this was an entire vector library then declaring a namespace with other classes such as a point, 1-D and 2-D vectors using inheritance would be done as 3-D vectors are an extension of 2-D vectors and 2-D vectors are extension of 1-D vectors.
+Implementation and declaration of the class functions have been down in the same header file to void errors which come with the design decision of using a templated class. Functions have been made intuitive to enhance usage and increase productivity. 
