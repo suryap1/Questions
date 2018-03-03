@@ -7,7 +7,7 @@ There are 4 ways to initialize a vector.
 ->vect3 A //all components are set to 0.
 ->vect3 A(p); //all components are set to p;
 ->vect3 A(x,y,z); //x,y,z are components
-->vect3 A(V); // where v is a vector.
+->vect3 A(v); // where v is a vector.
 
 Why have I made the components private?
 Having the subscript operator [] to access components as x:[0] , y:[1] and z[2] seems more intuitive and generally a more conventional
