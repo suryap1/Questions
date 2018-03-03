@@ -1,6 +1,7 @@
 3D-Vector Class Design decisions:
 
-I decided to make the vector class templated so it supports any general or custom defined datatype, generally float or double would be used. It is generally advised to use float or double as some methods would return rounded values for other datatypes.
+I decided to make the vector class templated so it supports any general or custom defined datatype, generally float or double would be 
+used. It is generally advised to use float or double as some methods would return rounded values for other datatypes.
 
 There are 4 ways to initialize a vector. 
 ->vect3 A //all components are set to 0.
@@ -10,10 +11,13 @@ There are 4 ways to initialize a vector.
 
 Why have I made the components private?
 Having the subscript operator [] to access components as x:[0] , y:[1] and z[2] seems more intuitive and generally a more conventional
-route rather than using something for e.g. V.x, V.y and V.z. If I was accessing the components without subscript operator then making the components public would make sense as there is no internal state to maintain.
+route rather than using something for e.g. V.x, V.y and V.z. If I was accessing the components without subscript operator then making
+the components public would make sense as there is no internal state to maintain.
 
 Other design points:
->To reduce double maintainability It is strongly recommended to express operator != in terms of operator ==. The reader should do extra work to make sure that the semantics of comparisons is correct. Similarly, other operators with tightly bound semantics also should not be independent. Therefore I have expressed operator+ in terms of operator+=, etc.
+>To reduce double maintainability It is strongly recommended to express operator != in terms of operator ==. The reader should do extra 
+work to make sure that the semantics of comparisons is correct. Similarly, other operators with tightly bound semantics also should not
+be independent. Therefore I have expressed operator+ in terms of operator+=, etc.
 
 >Accessing vector components this way would save function overhead call of getter and setter functions.
 
@@ -41,5 +45,7 @@ distance() //point and between vectors.
           vector1.distance(vector2)
 isNull() - checks whether the vector is a null vector.
 More functions like sin(), cos() etc. can be implemented using these functions.
-If this was an entire vector library then declaring a namespace with other classes such as a point, 1-D and 2-D vectors using inheritance would be done as 3-D vectors are an extension of 2-D vectors and 2-D vectors are extension of 1-D vectors.
-Implementation and declaration of the class functions have been down in the same header file to void errors which come with the design decision of using a templated class. Functions have been made intuitive to enhance usage and increase productivity. 
+If this was an entire vector library then declaring a namespace with other classes such as a point, 1-D and 2-D vectors using inheritance
+would be done as 3-D vectors are an extension of 2-D vectors and 2-D vectors are extension of 1-D vectors. Implementation and declaration
+of the class functions have been down in the same header file to void errors which come with the design decision of using a templated 
+class. Functions have been made intuitive to enhance usage and increase productivity. 
