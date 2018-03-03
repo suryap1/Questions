@@ -8,6 +8,7 @@
 // syntax:
 // ./<program-name> <functionname> <filename>
 // eg. ./finddef func2 input.txt
+// ***NOTE: It is important to have the sourcode in the specified format ***
 //
 
 #include <iostream>
