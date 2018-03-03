@@ -29,7 +29,7 @@ public:
     }
 
     inline bool operator!=(const vect3<T> &k) const {
-        return (x != k.x || y != k.y || z != k.z);
+        return !(*this==k);
     }
 
     // SCALING
@@ -81,52 +81,39 @@ public:
 
 //SHORT-HAND MODIFIERS
     inline vect3<T> &operator+=(const T &k) {
-        x += k;
-        y += k;
-        z += k;
-        return *this;
+        vect3<T> v(k);
+        *this=*this+v;
+        return (*this);
     }
 
     inline vect3<T> &operator+=(const vect3<T> &k) {
-        x += k.x;
-        y += k.y;
-        z += k.z;
-        return *this;
+        *this=*this+k;
+        return (*this);
     }
 
     inline vect3<T> &operator-=(const T &k) {
-        x -= k;
-        y -= k;
-        y -= k;
-        return *this;
+        vect3<T> &v(k);
+        *this=*this-v;
+        return (*this);
     }
 
     inline vect3<T> &operator-=(const vect3<T> &k) {
-        x -= k.x;
-        y -= k.y;
-        y -= k.z;
-        return *this;
+        *this=*this-k;
+        return (*this);
     }
 
     inline vect3<T> &operator*=(const T &k) {
-        x *= k;
-        y *= k;
-        z *= k;
-        return *this;
+        *this=*this*k;
+        return (*this);
     }
 
     inline vect3<T> &operator*=(const vect3<T> &k) {
-        x *= k.x;
-        y *= k.y;
-        z *= k.z;
-        return *this;
+        *this=*this*k;
+        return (*this);
     }
 
     inline vect3<T> operator/=(const T &k) {
-        x /= k;
-        y /= k;
-        z /= k;
-        return *this;
+        return (*this/k);
     }
 
 //VECTOR METHODS
