@@ -164,6 +164,10 @@ public:
         return vect3<T>(x - p, y - q, z - r).length();
     }
 
+    inline T distance(const vect3<T> &v) {
+        return (*this - v).length();
+    }
+
     inline bool isNull() const {
         return (x == 0. && y == 0. && z == 0.);
     }
@@ -181,10 +185,6 @@ public:
 
 };
 
-template <class T>
-inline T distance(const vect3<T> &v1, const vect3<T> &v2) {
-    return (v1 - v2).length();
-}
 
 
 #endif //COMP_VECTOR_3D_H
